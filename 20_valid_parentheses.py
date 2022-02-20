@@ -22,9 +22,3 @@ class Solution:
                     end_stack.append(p)
         
         return True if len(start_stack) == 0 and len(end_stack) == 0 else False
-
-            
-
-    
-sol = Solution()
-print(sol.isValid("(()){}[]"))
