@@ -3,20 +3,23 @@ class Solution:
         if len(s) != len(t):
             return False
         
+        freq_s = {}
+        freq_t = {}
         
-        freq1 = {}
-        freq2 = {}
-        
-        for index, ch in enumerate(s):
-            if ch in freq1:
-                freq1[ch] += 1
+        for c in s:
+            if c in freq_s:
+                freq_s[c] += 1
             else:
-                freq1[ch] = 1
-            
-            if t[index] in freq2:
-                freq2[t[index]] += 1
+                freq_s[c] = 1
+        
+        for c in t:
+            if c in freq_t:
+                freq_t[c] += 1
             else:
-                freq2[t[index]] = 1
+                freq_t[c] = 1
+                
+        for key in freq_s:
+            if not key in freq_t or freq_t[key] != freq_s[key]:
+                return False
         
-        return freq1 == freq2
-        
+        return True
