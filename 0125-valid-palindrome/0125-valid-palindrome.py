@@ -6,12 +6,8 @@ class Solution:
         s = re.sub('[^0-9a-zA-Z]+', '', s)
         s = s.replace(' ', '')
         
-        k = len(s) - 1
-        
-        for i in range(len(s) // 2):
-            if s[i] != s[k]:
+        for idx, c in enumerate(s):
+            if c != s[-(idx+1)]:
                 return False
-            
-            k -= 1
         
         return True
