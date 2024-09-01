@@ -5,19 +5,11 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def checkDepth(self, node, level):
-        leftLevel = level
-        rightLevel = level
-        
-        if node and node.left:
-            leftLevel = self.checkDepth(node.left, level + 1)
-        
-        if node and node.right:
-            rightLevel = self.checkDepth(node.right, level + 1)
-        
-        return leftLevel if leftLevel > rightLevel else rightLevel
-        
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        return self.checkDepth(root, 0) + 1
+        
+        left_depth = self.maxDepth(root.left)
+        right_depth = self.maxDepth(root.right)
+        
+        return max(left_depth, right_depth) + 1
