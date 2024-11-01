@@ -1,9 +1,11 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
-        res = 0
-        
+        ans = 0
+
         while n:
-            res += n % 2
+            if n % 2:
+                ans += 1
+            
             n = n >> 1
-        
-        return res
+
+        return ans
