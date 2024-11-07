@@ -40,8 +40,6 @@ TimeLimitedCache.prototype.get = function(key) {
 
     const item = this.cache[key]
 
-    console.log(item, currentTime)
-
     if (item && item.creationTime + item.duration >= currentTime) return item.value
 
     return -1
