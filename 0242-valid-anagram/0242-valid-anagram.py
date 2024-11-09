@@ -3,23 +3,16 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        freq_s = {}
-        freq_t = {}
-        
+        counter_s = {}
+
         for c in s:
-            if c in freq_s:
-                freq_s[c] += 1
-            else:
-                freq_s[c] = 1
-        
+            counter_s[c] = counter_s[c] + 1 if c in counter_s else 1
+
         for c in t:
-            if c in freq_t:
-                freq_t[c] += 1
-            else:
-                freq_t[c] = 1
+            counter_s[c] = counter_s[c] - 1 if c in counter_s else 1
                 
-        for key in freq_s:
-            if not key in freq_t or freq_t[key] != freq_s[key]:
+        for key in counter_s:
+            if counter_s[key] >= 1:
                 return False
         
         return True
