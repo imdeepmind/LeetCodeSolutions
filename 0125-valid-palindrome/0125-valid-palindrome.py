@@ -3,11 +3,10 @@ import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
+        s = s.replace(" ", "")
         s = re.sub('[^0-9a-zA-Z]+', '', s)
-        s = s.replace(' ', '')
+
+        return s == s[::-1]
+
+
         
-        for idx, c in enumerate(s):
-            if c != s[-(idx+1)]:
-                return False
-        
-        return True
