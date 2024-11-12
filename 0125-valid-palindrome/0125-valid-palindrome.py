@@ -7,6 +7,3 @@ class Solution:
         s = re.sub('[^0-9a-zA-Z]+', '', s)
 
         return s == s[::-1]
-
-
-        
