@@ -1,25 +1,32 @@
 class Solution:
-    def getIndividualNumbers(self, num):
-        if num < 10:
-            return [num]
-        
-        rem = num % 10
-        div = num // 10
-
-
-        return self.getIndividualNumbers(div) + [rem]
-    
-    def productSum(self, nums):
-        return sum([num**2 for num in nums])
-
     def isHappy(self, n: int) -> bool:
-        slow = self.productSum(self.getIndividualNumbers(n))
-        fast = self.productSum(self.getIndividualNumbers(slow))
+        def to_array(n):
+            nums = []
+            while n > 0:
+                nums = [n%10] + nums
+                n = n//10
+            
+            return nums
 
-        while slow != fast:
-            if slow == 1 or fast == 1:
+        def productSum(nums):
+            return sum([num**2 for num in nums])
+
+        if n == 1 or n == 7:
+            return True
+
+        nums = to_array(n)
+
+        while len(nums) > 1:
+            n = productSum(nums)
+            
+            print(n)
+            if n == 1 or n == 7:
                 return True
-            slow = self.productSum(self.getIndividualNumbers(slow))
-            fast = self.productSum(self.getIndividualNumbers(self.productSum(self.getIndividualNumbers(fast))))
-
-        return slow == 1
+            nums = to_array(n)
+        
+        if len(nums) == 1 and nums[0] == 1:
+            return True
+        
+        return False
+        
+        
