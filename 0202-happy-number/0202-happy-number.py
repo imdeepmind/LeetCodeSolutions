@@ -19,7 +19,6 @@ class Solution:
         while len(nums) > 1:
             n = productSum(nums)
             
-            print(n)
             if n == 1 or n == 7:
                 return True
             nums = to_array(n)
