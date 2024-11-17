@@ -1,5 +1,6 @@
 class Solution:
     def reverse(self, x: int) -> int:
+
         is_negative = False
 
         if x < 0:
@@ -17,4 +18,9 @@ class Solution:
         for index, num in enumerate(res):
             s += num * (10**(len(res) - (index+1)))
         
-        return s if not is_negative else s * -1
+        result = s if not is_negative else s * -1
+
+        if result <=-2147483647 or result > 2147483647:
+            return 0
+            
+        return result
