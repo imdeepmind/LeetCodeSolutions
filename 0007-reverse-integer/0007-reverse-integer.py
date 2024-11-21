@@ -1,26 +1,19 @@
 class Solution:
     def reverse(self, x: int) -> int:
+        MIN = -2**31
+        MAX = 2**31-1
 
-        is_negative = False
-
-        if x < 0:
-            x = x * -1
-            is_negative = True
-
-        res = []
-        
+        res = 0
         while x:
-            res.append(x % 10)
-            x = x // 10
-        
-        s = 0
+            last = int(math.fmod(x, 10))
+            x = int(x / 10)
 
-        for index, num in enumerate(res):
-            s += num * (10**(len(res) - (index+1)))
-        
-        result = s if not is_negative else s * -1
-
-        if result <=-2147483647 or result > 2147483647:
-            return 0
+            if res > MAX // 10 or (res == MAX // 10 and last > MAX % 10):
+                return 0
             
-        return result
+            if res < MIN // 10 or (res == MIN // 10 and last < MAX % 10):
+                return 0
+            
+            res = (res * 10) + last
+        
+        return res
