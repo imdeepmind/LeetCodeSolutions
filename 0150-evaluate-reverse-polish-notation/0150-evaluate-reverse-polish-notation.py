@@ -29,6 +29,6 @@ class Solution:
             del tokens[i-2]
             
             tokens.insert(i-2, self.performOperation(a, b, operation))
-            i = 0
+            i -= 2
         
         return int(tokens[0])
