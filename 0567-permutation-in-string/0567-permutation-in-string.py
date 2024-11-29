@@ -9,9 +9,12 @@ class Solution:
         n2 = len(s2)
 
         s1Freq = Counter(s1)
+        windowFreq = Counter(s2[:n1])
 
-        for i in range(n2-n1+1):
-            if Counter(s2[i:i+n1]) == s1Freq:
-                return True
-        
+        for i in range(1, n2-n1+1):
+            if s1Freq == windowFreq: return True
+
+            windowFreq[s2[i-1]] -= 1
+            windowFreq[s2[i+n1-1]] += 1
+            
         return False
