@@ -1,24 +1,16 @@
 class Solution:
-    cache = {}
-    
-    def takeStep2(self, curr, maxStep):
-        if curr == maxStep:
-            return 1
-        
-        if curr > maxStep:
-            return 0
-        
-        if curr in self.cache:
-            return self.cache[curr]
-        
-        res = self.takeStep2(curr+1, maxStep) + self.takeStep2(curr+2, maxStep)
-        
-        self.cache[curr] = res
-        
-        return res
-
-        
     def climbStairs(self, n: int) -> int:
-        self.cache = {}
+        ways = {}
+
+        def count(n):
+            if n == 0: return 1
+            if n == 1: return 1
+
+            if n in ways: return ways[n]
+            
+            res = count(n-1) + count(n-2)
+            ways[n] = res
+            
+            return res
         
-        return self.takeStep2(0, n)
+        return count(n)
