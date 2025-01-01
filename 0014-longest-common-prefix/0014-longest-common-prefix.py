@@ -1,14 +1,16 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        pivot = strs[0]
-        common = ""
+        if len(strs) == 1:
+            return strs[0]
         
-        for idx, c in enumerate(pivot):
-            for word in strs:
-                if len(word) == idx or word[idx] != c:
+        common = ""
+        for index, ch in enumerate(strs[0]):
+            for word in strs[1:]:
+                if len(word) <= index:
+                    return common
+                if word[index] != ch:
                     return common
                 
-            common += c
+            common += ch
         
         return common
-            
