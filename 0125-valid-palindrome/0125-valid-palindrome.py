@@ -4,15 +4,15 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower()
         s = s.replace(" ", "")
-        s = re.sub('[^0-9a-zA-Z]+', '', s)
+        s = re.sub(r"\W", "", s)
+        s = s.replace("_", "")
 
-        if s == "":
-            return True
+        n = len(s)
 
-        for i in range(len(s)//2+1):
-            alpha = len(s) - (i+1)
+        for i in range(n//2):
+            opp = n - i - 1
 
-            if s[i] != s[alpha]:
+            if s[i] != s[opp]:
                 return False
         
         return True
