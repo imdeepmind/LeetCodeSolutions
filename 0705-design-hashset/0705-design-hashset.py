@@ -2,7 +2,6 @@ class MyHashSet:
 
     def __init__(self):
         self.mapper = {}
-        
 
     def add(self, key: int) -> None:
         self.mapper[key] = 1
@@ -13,6 +12,7 @@ class MyHashSet:
 
     def contains(self, key: int) -> bool:
         return key in self.mapper
+        
 
 
 # Your MyHashSet object will be instantiated and called as such:
