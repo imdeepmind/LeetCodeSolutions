@@ -1,11 +1,10 @@
-class Solution(object):
-    def removeElement(self, nums, val):
-        # Counter for keeping track of elements other than val
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
         count = 0
-        # Loop through all the elements of the array
-        for i in range(len(nums)):
-            # If the element is not val
-            if nums[i] != val:
-                nums[count] = nums[i]
+
+        for index, num in enumerate(nums):
+            if num != val:
+                nums[count] = nums[index]
                 count += 1
+        
         return count
