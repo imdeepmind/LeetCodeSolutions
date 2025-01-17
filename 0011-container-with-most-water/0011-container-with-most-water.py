@@ -1,18 +1,16 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        max_capacity = float('-inf')
-        i, j = 0, len(height) - 1
+        l, r = 0, len(height) - 1
+        max_water = float('-inf')
 
-        while j > i:
-            capacity = min(height[i], height[j]) * (j - i)
+        while r > l:
+            water = min(height[l], height[r]) * (r-l)
 
-            if capacity > max_capacity:
-                max_capacity = capacity
-            
-            if height[i] < height[j]:
-                i += 1
+            max_water = max(max_water, water)
+
+            if height[l] < height[r]:
+                l += 1
             else:
-                j -= 1
+                r -= 1
         
-        return max_capacity
-        
+        return max_water
