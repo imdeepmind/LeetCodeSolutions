@@ -13,4 +13,3 @@ class Solution:
             sell += 1
         
         return max_profit
-
