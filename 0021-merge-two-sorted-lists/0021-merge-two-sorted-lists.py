@@ -5,32 +5,30 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        head1 = list1
-        head2 = list2
+        merged = ListNode(0)
+        head = merged
+        
+        while list1 or list2:
+            list1_val = list1.val if list1 else float('inf')
+            list2_val = list2.val if list2 else float('inf')
 
-        res = ListNode()
-        head = res
-
-        while head1 or head2:
-            if not head1:
-                res.next = ListNode(head2.val)
-                head2 = head2.next
-                res = res.next
-                continue
-            
-            if not head2:
-                res.next = ListNode(head1.val)
-                head1 = head1.next
-                res = res.next
-                continue
-
-            if head1.val < head2.val:
-                res.next = ListNode(head1.val)
-                head1 = head1.next
+            if list1_val > list2_val:
+                merged.next = ListNode(list2.val)
+                merged = merged.next
+                list2 = list2.next
             else:
-                res.next = ListNode(head2.val)
-                head2 = head2.next
+                merged.next = ListNode(list1.val)
+                merged = merged.next
+                list1 = list1.next
 
-            res = res.next
-
+            # if list1:
+            #     merged.next = ListNode(list1.val)
+            #     merged = merged.next
+            #     list1 = list1.next
+            
+            # if list2:
+            #     merged.next = ListNode(list2.val)
+            #     merged = merged.next
+            #     list2 = list2.next
+            
         return head.next
