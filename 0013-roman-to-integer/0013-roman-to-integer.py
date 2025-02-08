@@ -1,6 +1,6 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        obj = {
+        mapper = {
             'I': 1,
             'V': 5,
             'X': 10,
@@ -9,31 +9,45 @@ class Solution:
             'D': 500,
             'M': 1000
         }
-        
-        num = 0
-        jump = False
-        
-        for index, n in enumerate(s):
-            if jump:
-                jump = False
-                continue
-                
-            if len(s) > index+1:
-                next_c = s[index+1]
-                
-                if n == 'I' and next_c in ('X', 'V'):
-                    num += 4 if next_c == 'V' else 9
-                    jump = True
-                    continue
-                elif n == 'X' and next_c in ('L', 'C'):
-                    num += 40 if next_c == 'L' else 90
-                    jump = True
-                    continue
-                elif n == 'C' and next_c in ('D', 'M'):
-                    num += 400 if next_c == 'D' else 900
-                    jump = True
-                    continue
 
-            num += obj[n]
-        
-        return num
+        res = 0
+
+        l = 0
+
+        while len(s) > l:
+            c = s[l]
+
+            if len(s) > l+1:
+                nxt = s[l+1]
+                if c == "I":
+                    if nxt == "V":
+                        res += 4
+                        l += 2
+                        continue
+                    elif nxt == "X":
+                        res += 9
+                        l += 2
+                        continue
+                elif c == "X":
+                    if nxt == "L":
+                        res += 40
+                        l += 2
+                        continue
+                    elif nxt == "C":
+                        res += 90
+                        l += 2
+                        continue
+                elif c == "C":
+                    if nxt == "D":
+                        res += 400
+                        l += 2
+                        continue
+                    elif nxt == "M":
+                        res += 900
+                        l += 2
+                        continue
+                
+            res += mapper[c]
+            l += 1
+
+        return res
