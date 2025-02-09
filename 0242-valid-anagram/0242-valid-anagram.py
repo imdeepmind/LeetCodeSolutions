@@ -2,27 +2,20 @@ from collections import defaultdict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        sl = len(s)
-        tl = len(t)
+        n1, n2 = len(s), len(t)
 
-        if sl != tl:
+        if n1 != n2:
             return False
         
         s_freq = defaultdict(int)
         t_freq = defaultdict(int)
 
-        for c in s:
-            s_freq[c] += 1
-        
-        for c in t:
-            t_freq[c] += 1
+        for i in range(n1):
+            s_freq[s[i]] += 1
+            t_freq[t[i]] += 1
         
         for key, value in s_freq.items():
-            if value != t_freq[key]:
-                return False
-        
-        for key, value in t_freq.items():
-            if value != s_freq[key]:
+            if t_freq[key] != value:
                 return False
         
         return True
