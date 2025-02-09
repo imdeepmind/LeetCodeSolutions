@@ -3,11 +3,12 @@ class Solution:
         mapper = {}
 
         for index, num in enumerate(nums):
-            delta = target - num
-
-            if delta in mapper:
-                return [index, mapper[delta]]
-            
             mapper[num] = index
         
-        return [-1, -1]
+        for index, num in enumerate(nums):
+            delta = target - num
+
+            if delta in mapper and index != mapper[delta]:
+                return mapper[delta], index
+        
+        return -1, -1
