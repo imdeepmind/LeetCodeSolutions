@@ -11,10 +11,10 @@ class Solution:
                 return
 
             root.left, root.right = root.right, root.left
-
+            
             invert(root.left)
             invert(root.right)
         
-        invert(root)
-
-        return root
+            return root
+        
+        return invert(root)
