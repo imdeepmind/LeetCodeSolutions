@@ -10,13 +10,10 @@ class Solution:
 
         def dfs(root):
             if not root:
-                return
+                return 
             
-            nonlocal res
-
             dfs(root.left)
             dfs(root.right)
-
             res.append(root.val)
         
         dfs(root)
