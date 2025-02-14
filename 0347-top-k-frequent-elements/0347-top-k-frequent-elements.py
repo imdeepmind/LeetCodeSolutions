@@ -7,17 +7,20 @@ class Solution:
         for num in nums:
             mapper[num] += 1
         
-        bucket = [[] for i in range(len(nums))]
+        bucket = [[] for _ in range(len(nums))]
 
         for key, value in mapper.items():
             bucket[value-1].append(key)
         
         res = []
 
-        for i in range(len(bucket)-1,-1,-1):
-            for item in bucket[i]:
-                if bucket[i] != 0:
-                    res.append(item)
-            
-        
+        print(bucket)
+
+        for i in range(len(bucket)-1, -1, -1):
+            b = bucket[i]
+
+            for n in b:
+                res.append(n)
+                # if n != 0:
+
         return res[:k]
