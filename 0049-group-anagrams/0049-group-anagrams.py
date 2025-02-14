@@ -5,12 +5,10 @@ class Solution:
         mapper = defaultdict(list)
 
         for word in strs:
-            key = "".join(sorted(word))
-            mapper[key].append(word)
-
+            mapper["".join(sorted(word))].append(word)
+        
         res = []
-
-        for _, value in mapper.items():
-            res.append(value)
+        for _, values in mapper.items():
+            res.append(values)
         
         return res
