@@ -14,5 +14,5 @@ class Solution:
 
             output[i] *= right
             right *= val
-
+        
         return output
