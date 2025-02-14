@@ -3,7 +3,7 @@ import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = s.lower().replace(" ", "").replace("_", "")
-        s = re.sub(r"\W", "", s)
+        s = re.sub("\W", "", s)
 
         n = len(s)
 
