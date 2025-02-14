@@ -1,21 +1,23 @@
+from collections import defaultdict
+
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        hash = {}
+        mapper = defaultdict(int)
 
         for num in nums:
-            if num in hash:
-                hash[num] += 1
-            else:
-                hash[num] = 1
+            mapper[num] += 1
         
         bucket = [[] for i in range(len(nums))]
 
-        for key, value in hash.items():
+        for key, value in mapper.items():
             bucket[value-1].append(key)
         
-        resp = []
-        for i in range(len(bucket)-1, -1, -1):
+        res = []
+
+        for i in range(len(bucket)-1,-1,-1):
             for item in bucket[i]:
-                resp.append(item)
+                if bucket[i] != 0:
+                    res.append(item)
+            
         
-        return resp[:k]
+        return res[:k]
