@@ -1,23 +1,22 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        def is_palindrime(l, r):
-            while r > l:
-                if s[l] != s[r]:
+        def isPalindrome(start, end):
+            while end > start:
+                if s[start] != s[end]:
                     return False
                 
-                l += 1
-                r -= 1
-            
+                end -= 1
+                start += 1
+
             return True
+        
+        start, end = 0, len(s) - 1
 
-        n = len(s)
-        l, r = 0, n - 1
+        while end > start:
+            if s[start] != s[end]:
+                return isPalindrome(start+1, end) or isPalindrome(start, end-1)
 
-        while r > l:
-            if s[l] != s[r]:
-                return is_palindrime(l+1, r) or is_palindrime(l, r-1)
-            
-            l += 1
-            r -= 1
+            start += 1
+            end -= 1
         
         return True
