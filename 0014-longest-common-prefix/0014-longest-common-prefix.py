@@ -2,17 +2,15 @@ class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         res = ""
         
-        for p in strs[0]:
-            delta = res + p
+        for pc in strs[0]:
             matched = True
-
             for word in strs[1:]:
-                if not word.startswith(delta):
+                if not word.startswith(res + pc):
                     matched = False
                     break
             
             if matched:
-                res += p
+                res += pc
             else:
                 break
         
