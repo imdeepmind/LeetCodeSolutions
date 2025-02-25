@@ -2,14 +2,14 @@
  * @return {Generator<number>}
  */
 var fibGenerator = function*() {
-    let prev = 0,
-        current = 1;
+    let prev = 0, current = 1;
 
     while (true) {
         yield prev
-        temp = prev
+
+        temp = prev + current
         prev = current
-        current = temp + current
+        current = temp
     }
 };
 
