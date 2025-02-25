@@ -12,21 +12,18 @@ class Solution:
             if list1 and list2:
                 if list1.val > list2.val:
                     merged.next = ListNode(list2.val)
-                    merged = merged.next
                     list2 = list2.next
                 else:
                     merged.next = ListNode(list1.val)
-                    merged = merged.next
                     list1 = list1.next
+                merged = merged.next
             else:
-                if list1:
-                    merged.next = ListNode(list1.val)
-                    merged = merged.next
-                    list1 = list1.next
-                
-                if list2:
+                if not list1:
                     merged.next = ListNode(list2.val)
-                    merged = merged.next
                     list2 = list2.next
+                else:
+                    merged.next = ListNode(list1.val)
+                    list1 = list1.next
+                merged = merged.next
         
         return head.next
