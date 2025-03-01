@@ -3,17 +3,15 @@
  * @return {Function}
  */
 var once = function(fn) {
-    let isTrigerred = false;
+    let isTriggred = false;
 
-    return (...args) => {
-        if (!isTrigerred) {
-            isTrigerred = true;
+    return function(...args){
+        if (!isTriggred) {
+            isTriggred = true;
             return fn(...args)
         }
-
-        return undefined
     }
-}
+};
 
 /**
  * let fn = (a,b,c) => (a + b + c)
