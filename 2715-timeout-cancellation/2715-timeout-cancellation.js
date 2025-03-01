@@ -6,10 +6,12 @@
  */
 var cancellable = function(fn, args, t) {
     const interval = setTimeout(() => {
-        fn(...args)
-    }, t)
+        return fn(...args)
+    }, t);
 
-    return () => { clearInterval(interval) }
+    return () => {
+        clearInterval(interval);
+    }
 };
 
 /**
