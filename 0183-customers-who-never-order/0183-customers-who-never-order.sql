@@ -1,5 +1,7 @@
 -- Write your PostgreSQL query statement below
-SELECT c.name as customers FROM customers c
-LEFT JOIN orders o
-ON o.customerId = c.id
-WHERE o.id IS NULL
+SELECT
+    C.name as Customers
+FROM Customers C
+LEFT JOIN Orders O
+    ON C.id = O.customerId
+WHERE O.id IS NULL
