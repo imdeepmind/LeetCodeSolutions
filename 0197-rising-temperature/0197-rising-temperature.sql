@@ -1,5 +1,8 @@
 -- Write your PostgreSQL query statement below
-SELECT w2.id FROM weather w1
-LEFT JOIN weather w2
-ON DATE(w1.recordDate) + 1 = w2.recordDate
-WHERE w2.temperature > w1.temperature
+SELECT 
+    W2.id
+FROM Weather W1
+LEFT JOIN Weather W2
+    ON DATE(W1.recordDate) + 1 = W2.recordDate
+WHERE 
+    W2.temperature > W1.temperature
