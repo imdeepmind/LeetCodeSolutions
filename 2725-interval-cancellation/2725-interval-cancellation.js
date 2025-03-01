@@ -10,9 +10,9 @@ var cancellable = function(fn, args, t) {
     const interval = setInterval(() => {
         fn(...args)
     }, t)
-    
+
     return () => {
-            clearInterval(interval)
+        clearInterval(interval);
     }
 };
 
