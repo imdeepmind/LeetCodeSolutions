@@ -3,20 +3,16 @@
  * @return {Object}
  */
 Array.prototype.groupBy = function(fn) {
-    const hash = {}
+    const mapper = {}
 
-    for (const item of this) {
-        const value = fn(item)
+    this.forEach((item) => {
+        const key = fn(item);
 
-        if (hash.hasOwnProperty(value)) {
-            hash[value].push(item)
-        } else {
-            hash[value] = [item]
-        }
-    }
-
-    return hash
+        if (mapper[key]) mapper[key].push(item)
+        else mapper[key] = [item]
+    })
     
+    return mapper;
 };
 
 /**
