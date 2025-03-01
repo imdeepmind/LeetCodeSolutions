@@ -13,12 +13,14 @@ class EventEmitter {
 
         return {
             unsubscribe: () => {
-                this.events[eventName].forEach((event, index) => {
-                    if (event === callback) {
-                        this.events[eventName].splice(index, 1)
-                        return
-                    }
-                })
+                if (this.events[eventName]) {
+                    this.events[eventName].forEach((event, index) => {
+                        if (event === callback) {
+                            this.events[eventName].splice(index, 1)
+                            return
+                        }
+                    })
+                }
             }
         };
     }
@@ -29,11 +31,15 @@ class EventEmitter {
      * @return {Array}
      */
     emit(eventName, args = []) {
-        if (this.events[eventName] === undefined) {
-            return []
-        }
+        if (this.events[eventName] === undefined) return [];
 
-        return this.events[eventName].map(e => e(...args))
+        const res = [];
+
+        this.events[eventName].forEach((func) => {
+            res.push(func(...args));
+        })
+
+        return res;
     }
 }
 
