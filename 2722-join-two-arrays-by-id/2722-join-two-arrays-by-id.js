@@ -4,20 +4,22 @@
  * @return {Array}
  */
 var join = function(arr1, arr2) {
-    result = {}
+    const joinedArray = [];
+    const merged = {};
 
-    arr1.forEach(item => {
-        result[item.id] = item
+    arr1.forEach((item) => {
+        if (merged[item.id]) merged[item.id] = {...merged[item.id], ...item}
+        else merged[item.id] = item
     })
 
-    arr2.forEach(item => {
-        if (result[item.id] === undefined)
-            result[item.id] = item
-        else result[item.id] = {...result[item.id], ...item}
-    })
-
-    return Object.keys(result).map(key => {
-        return result[key]
+    arr2.forEach((item) => {
+        if (merged[item.id]) merged[item.id] = {...merged[item.id], ...item}
+        else merged[item.id] = item
     })
     
+    for (const key in merged) {
+        joinedArray.push(merged[key])
+    }
+
+    return joinedArray;
 };
