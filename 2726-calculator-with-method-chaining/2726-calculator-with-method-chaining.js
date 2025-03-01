@@ -4,7 +4,7 @@ class Calculator {
      * @param {number} value
      */
     constructor(value) {
-        this.value = value;
+        this.val = value;
     }
     
     /** 
@@ -12,7 +12,7 @@ class Calculator {
      * @return {Calculator}
      */
     add(value){
-        return new Calculator(this.value + value)
+        return new Calculator(this.val + value);
     }
     
     /** 
@@ -20,7 +20,7 @@ class Calculator {
      * @return {Calculator}
      */
     subtract(value){
-        return new Calculator(this.value - value)
+        return new Calculator(this.val - value);
     }
     
     /** 
@@ -28,7 +28,7 @@ class Calculator {
      * @return {Calculator}
      */  
     multiply(value) {
-        return new Calculator(this.value * value)
+        return new Calculator(this.val * value);
     }
     
     /** 
@@ -37,7 +37,7 @@ class Calculator {
      */
     divide(value) {
         if (value === 0) throw new Error("Division by zero is not allowed")
-        return new Calculator(this.value / value)
+        return new Calculator(this.val / value);
     }
     
     /** 
@@ -45,13 +45,13 @@ class Calculator {
      * @return {Calculator}
      */
     power(value) {
-        return new Calculator(Math.pow(this.value, value))
+        return new Calculator(Math.pow(this.val, value));
     }
     
     /** 
      * @return {number}
      */
     getResult() {
-        return this.value
+        return this.val;
     }
 }
