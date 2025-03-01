@@ -9,26 +9,25 @@ var TimeLimitedCache = function() {
  * @return {boolean} if un-expired key already existed
  */
 TimeLimitedCache.prototype.set = function(key, value, duration) {
-    const creationTime = +new Date()
-
     if (this.cache.hasOwnProperty(key)) {
         this.cache[key] = {
-            value, duration, creationTime
+            value,
+            ttl: +new Date() + duration
         }
 
         if (this.get(key) === -1) {
             return false
         }
-        
 
         return true
     }
 
     this.cache[key] = {
-        value, duration, creationTime
+        value,
+        ttl: +new Date() + duration
     }
 
-    return false
+    return false;
 };
 
 /** 
@@ -36,11 +35,9 @@ TimeLimitedCache.prototype.set = function(key, value, duration) {
  * @return {number} value associated with key
  */
 TimeLimitedCache.prototype.get = function(key) {
-    const currentTime = +new Date()
-
-    const item = this.cache[key]
-
-    if (item && item.creationTime + item.duration >= currentTime) return item.value
+    if (this.cache[key] && this.cache[key]['ttl'] > +new Date()) {
+        return this.cache[key]['value']
+    }
 
     return -1
 };
@@ -49,13 +46,13 @@ TimeLimitedCache.prototype.get = function(key) {
  * @return {number} count of non-expired keys
  */
 TimeLimitedCache.prototype.count = function() {
-    let total = 0
+    let count = 0
 
     Object.keys(this.cache).forEach(key => {
-        if (this.get(key) !== -1) total ++
+        if (this.get(key) !== -1) count += 1;
     })
 
-    return total
+    return count
 };
 
 /**
