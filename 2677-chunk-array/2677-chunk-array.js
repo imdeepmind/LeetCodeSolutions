@@ -5,7 +5,7 @@
  */
 var chunk = function(arr, size) {
     const res = [];
-    let batch = []
+    let batch = [];
 
     arr.forEach(item => {
         if (size > batch.length) {
@@ -17,8 +17,8 @@ var chunk = function(arr, size) {
     })
 
     if (batch.length > 0) {
-        res.push(batch);
+        res.push(batch)
     }
 
-    return res
+    return res;
 };
