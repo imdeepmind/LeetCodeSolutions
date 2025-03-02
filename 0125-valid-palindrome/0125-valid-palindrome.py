@@ -2,13 +2,11 @@ import re
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s = s.lower().replace(" ", "").replace("_", "")
-        s = re.sub("\W", "", s)
+        s = s.lower().replace("_", "")
+        s = re.sub(r"\W", "", s)
 
-        n = len(s)
-
-        for i in range(n // 2):
-            opp = n - i - 1
+        for i in range(len(s) // 2):
+            opp = len(s) - i - 1
 
             if s[i] != s[opp]:
                 return False
