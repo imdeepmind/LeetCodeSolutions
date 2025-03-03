@@ -15,7 +15,7 @@ class Solution:
         while end > start:
             if s[start] != s[end]:
                 return isPalindrome(start+1, end) or isPalindrome(start, end-1)
-
+        
             start += 1
             end -= 1
         
