@@ -7,12 +7,12 @@ class Solution:
         for num in nums:
             mapper[num] += 1
         
-        biggest_value = float('-inf')
-        biggest_freq = 0
+        max_value = 0
+        max_item = None
 
         for key, value in mapper.items():
-            if value > biggest_freq:
-                biggest_freq = value
-                biggest_value = key
+            if value > max_value:
+                max_value = value
+                max_item = key
         
-        return biggest_value
+        return max_item
