@@ -1,20 +1,21 @@
-from collections import defaultdict
-
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        n1, n2 = len(s), len(t)
-        freq_s = defaultdict(int)
-        freq_t = defaultdict(int)
-
-        if n1 != n2:
+        if len(s) != len(t):
             return False
         
-        for i in range(n1):
-            freq_s[s[i]] += 1
-            freq_t[t[i]] += 1
+        mapper = {}
+
+        for c in s:
+            mapper[c] = mapper.get(c, 0) + 1
         
-        for key, value in freq_s.items():
-            if value != freq_t[key]:
+        for c in t:
+            if c not in mapper:
                 return False
+            
+            if mapper[c] > 0:
+                mapper[c] -= 1
+
+                if mapper[c] == 0:
+                    del mapper[c]
         
-        return True
+        return len(mapper) == 0
