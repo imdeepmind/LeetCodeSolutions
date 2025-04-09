@@ -3,9 +3,13 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        n = len(s)
+        start, end = 0, len(s) - 1
 
-        for i in range(n // 2):
-            opp = n - i - 1
-            s[i], s[opp] = s[opp], s[i]
+        while end >= start:
+            s[start], s[end] = s[end], s[start]
+
+            start += 1
+            end -= 1
         
+        
+            
