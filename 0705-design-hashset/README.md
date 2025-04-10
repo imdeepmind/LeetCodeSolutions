@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/design-hashset">705. Design HashSet</a></h2><h3>Easy</h3><hr><p>Design a HashSet without using any built-in hash table libraries.</p>
+<h2><a href="https://leetcode.com/problems/design-hashset/">705. Design HashSet</a></h2><h3>Easy</h3><hr><p>Design a HashSet without using any built-in hash table libraries.</p>
 
 <p>Implement <code>MyHashSet</code> class:</p>
 
