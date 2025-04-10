@@ -1,6 +1,6 @@
 -- Write your PostgreSQL query statement below
-SELECT email FROM (
-    SELECT COUNT(*) as total, email FROM person p
-    GROUP BY p.email
-) as tmp
-WHERE tmp.total > 1
+SELECT 
+    P.email as Email
+FROM Person P
+GROUP BY P.email
+HAVING count(P.email) > 1
