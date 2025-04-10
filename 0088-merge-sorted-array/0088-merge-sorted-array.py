@@ -1,18 +1,19 @@
 class Solution:
-    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        n1, n2 = len(nums1) - 1, len(nums2) - 1
-        i, j = m - 1, n - 1
-        k = m + n - 1
+        num1_pointer = m - 1
+        num2_pointer = n - 1
 
-        while j >= 0:
-            if i >= 0 and nums1[i] > nums2[j]:
-                nums1[k] = nums1[i]
-                i -= 1
+        pointer = m + n - 1
+
+        while num2_pointer >= 0:
+            if num1_pointer >= 0 and nums1[num1_pointer] > nums2[num2_pointer]:
+                nums1[pointer] = nums1[num1_pointer]
+                num1_pointer -= 1
             else:
-                nums1[k] = nums2[j]
-                j -= 1
-
-            k -= 1
+                nums1[pointer] = nums2[num2_pointer]
+                num2_pointer -= 1
+            
+            pointer -= 1
