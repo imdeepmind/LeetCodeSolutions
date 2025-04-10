@@ -3,5 +3,5 @@ SELECT
     C.name as Customers
 FROM Customers C
 LEFT JOIN Orders O
-    ON C.id = O.customerId
+ON O.customerId = C.id
 WHERE O.id IS NULL
