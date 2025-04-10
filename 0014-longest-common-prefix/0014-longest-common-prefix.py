@@ -3,15 +3,16 @@ class Solution:
         pivot = strs[0]
         res = ""
 
-        for pvc in pivot:
-            match = True
+        for p in pivot:
+            matched = True
+
             for word in strs[1:]:
-                if not word.startswith(res + pvc):
-                    match = False
-            
-            if match:
-                res += pvc
+                if not word.startswith(res + p):
+                    matched = False
+
+            if matched:
+                res += p
             else:
                 break
-        
+            
         return res
