@@ -8,13 +8,13 @@ class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
 
-        def dfs(root):
-            if not root:
-                return
+        def dfs(head):
+            if not head:
+                return 
             
-            dfs(root.left)
-            dfs(root.right)
-            res.append(root.val)
+            dfs(head.left)
+            dfs(head.right)
+            res.append(head.val)
         
         dfs(root)
 
