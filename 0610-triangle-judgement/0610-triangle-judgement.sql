@@ -1,7 +1,11 @@
 -- Write your PostgreSQL query statement below
-SELECT *, 
+SELECT
+    T.x,
+    T.y,
+    T.z,
     CASE 
-        WHEN x+y > z AND x+z > y AND y+z > x THEN 'Yes' 
-        ELSE 'No'
-    END AS triangle
-FROM Triangle
+        WHEN T.x+T.y > T.z AND T.y + T.z > T.x AND T.x + T.z > T.y 
+            THEN 'Yes'
+            ELSE 'No' 
+        END AS "triangle"
+FROM Triangle T
