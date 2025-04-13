@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/swap-salary">627. Swap Salary</a></h2><h3>Easy</h3><hr><p>Table: <code>Salary</code></p>
+<h2><a href="https://leetcode.com/problems/swap-salary/">627. Swap Salary</a></h2><h3>Easy</h3><hr><p>Table: <code>Salary</code></p>
 
 <pre>
 +-------------+----------+
