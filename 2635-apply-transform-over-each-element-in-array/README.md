@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/apply-transform-over-each-element-in-array">2635. Apply Transform Over Each Element in Array</a></h2><h3>Easy</h3><hr><p>Given an integer array&nbsp;<code>arr</code>&nbsp;and a mapping function&nbsp;<code>fn</code>, return&nbsp;a new array with a transformation applied to each element.</p>
+<h2><a href="https://leetcode.com/problems/apply-transform-over-each-element-in-array/">2635. Apply Transform Over Each Element in Array</a></h2><h3>Easy</h3><hr><p>Given an integer array&nbsp;<code>arr</code>&nbsp;and a mapping function&nbsp;<code>fn</code>, return&nbsp;a new array with a transformation applied to each element.</p>
 
 <p>The returned array should be created such that&nbsp;<code>returnedArray[i] = fn(arr[i], i)</code>.</p>
 
@@ -37,5 +37,5 @@ The function increases each value in the array by one.
 <ul>
 	<li><code>0 &lt;= arr.length &lt;= 1000</code></li>
 	<li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></font></code></li>
-	<li><code>fn</code> returns a number</li>
+	<li><code>fn</code> returns an integer.</li>
 </ul>
