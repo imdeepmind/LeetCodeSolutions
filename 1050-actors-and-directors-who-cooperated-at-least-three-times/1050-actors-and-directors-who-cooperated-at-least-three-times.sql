@@ -1,4 +1,7 @@
 -- Write your PostgreSQL query statement below
-SELECT actor_id, director_id FROM ActorDirector
-GROUP BY actor_id, director_id
-HAVING count(*) >= 3
+SELECT
+    AD.actor_id,
+    AD.director_id
+FROM ActorDirector AD
+GROUP BY AD.actor_id, AD.director_id
+HAVING COUNT(*) > 2
