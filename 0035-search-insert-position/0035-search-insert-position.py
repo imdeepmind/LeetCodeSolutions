@@ -4,14 +4,13 @@ class Solution:
 
         while end >= start:
             mid = end - ((end - start) // 2)
-            midVal = nums[mid]
 
-            if target == midVal:
+            if nums[mid] == target:
                 return mid
             
-            if midVal > target:
+            if nums[mid] > target:
                 end = mid - 1
             else:
                 start = mid + 1
-        
+            
         return start
