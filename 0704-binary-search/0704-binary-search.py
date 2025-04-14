@@ -3,13 +3,12 @@ class Solution:
         start, end = 0, len(nums) - 1
 
         while end >= start:
-            mid = end - ((end - start) // 2)
-            mid_value = nums[mid]
+            mid = end - ((end-start)//2)
 
-            if mid_value == target:
+            if nums[mid] == target:
                 return mid
-            
-            if mid_value > target:
+
+            if nums[mid] > target:
                 end = mid - 1
             else:
                 start = mid + 1
