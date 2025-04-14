@@ -16,14 +16,16 @@ class Solution:
                 else:
                     merged.next = ListNode(list1.val)
                     list1 = list1.next
-                merged = merged.next
             else:
-                if not list1:
-                    merged.next = ListNode(list2.val)
-                    list2 = list2.next
-                else:
+                if list1:
                     merged.next = ListNode(list1.val)
                     list1 = list1.next
-                merged = merged.next
+                else:
+                    merged.next = ListNode(list2.val)
+                    list2 = list2.next
+
+            merged = merged.next
         
         return head.next
+
+
