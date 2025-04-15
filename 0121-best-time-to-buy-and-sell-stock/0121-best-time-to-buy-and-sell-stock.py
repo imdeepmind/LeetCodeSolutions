@@ -1,8 +1,7 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        buy, sell = 0, 1
-
         max_profit = 0
+        buy, sell = 0, 1
 
         while len(prices) > sell:
             if prices[sell] > prices[buy]:
