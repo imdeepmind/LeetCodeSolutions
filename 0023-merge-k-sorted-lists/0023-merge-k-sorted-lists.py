@@ -19,7 +19,7 @@ class Solution:
                 current = current.next
 
         current.next = l1 or l2
-        
+
         return anchor.next
 
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
@@ -29,12 +29,16 @@ class Solution:
         if len(lists) == 1:
             return lists[0]
         
-        head = self.mergeTwoList(lists[0], lists[1])
-        index = 2
+        while len(lists) > 1:
+            merged_list = []
 
-        while len(lists) > index:
-            head = self.mergeTwoList(head, lists[index])
+            for i in range(0, len(lists), 2):
+                first = lists[i]
+                second = lists[i+1] if len(lists) > i+1 else None
 
-            index += 1
+                merged_list.append(self.mergeTwoList(first, second))
+            
+            lists = merged_list
         
-        return head
+        return lists[0]
+        
