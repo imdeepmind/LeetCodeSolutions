@@ -4,65 +4,62 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def findMiddle(self, head):
-        slow, fast = head, head
-
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        
-        return slow
-    
-    def divideList(self, head, middle):
-        start = head
-
-        while start.next:
-            if start.next == middle:
-                start.next = None
-                break
-
-            start = start.next
-
-        return head
-
-    def reverseList(self, head):
-        prev, curr = None, head
-
-        while curr:
-            temp = curr.next
-            curr.next = prev
-
-            prev, curr = curr, temp
-        
-        return prev
-
     def reorderList(self, head: Optional[ListNode]) -> None:
         """
         Do not return anything, modify head in-place instead.
         """
-        if not head.next:
+        if not head or not head.next:
             return head
+            
+        def find_middle(root):
+            slow, fast = root, root
 
-        # find middle node
-        middle = self.findMiddle(head)
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            
+            return slow
+        
+        def reversed_list(root):
+            prev, current = None, root
 
-        start = self.divideList(head, middle)
+            while current:
+                temp = current.next
+                current.next = prev
 
-        # # Reverse the "middle" linked list
-        reversedMiddle = self.reverseList(middle)
+                prev = current
+                current = temp
+            
+            return prev
+        
+        def divide_list(root, middle):
+            current = root
 
-        res = ListNode()
+            while current.next:
+                if current.next == middle:
+                    current.next = None
+                    break
+
+                current = current.next
+            
+            return root
+        
+        middle = find_middle(head)
+        reversed_middle = reversed_list(middle)
+        start = divide_list(head, middle)
+
+        res = ListNode(0)
         anchor = res
 
-        while start or reversedMiddle:
+        while start or reversed_middle:
             if start:
                 res.next = start
-                res = res.next
                 start = start.next
-            
-            if reversedMiddle:
-                res.next = reversedMiddle
                 res = res.next
-                reversedMiddle = reversedMiddle.next
+            
+            if reversed_middle:
+                res.next = reversed_middle
+                reversed_middle = reversed_middle.next
+                res = res.next
         
-        return anchor
+        return anchor.next
