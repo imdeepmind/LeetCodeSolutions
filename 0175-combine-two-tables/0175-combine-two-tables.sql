@@ -1,9 +1,9 @@
 -- Write your PostgreSQL query statement below
 SELECT
-    firstName,
-    lastName,
-    city,
-    state
+    P.firstName,
+    P.lastName,
+    A.city,
+    A.state
 FROM Person P
 LEFT JOIN Address A
-ON A.personId = P.personId
+ON P.personId = A.personId
