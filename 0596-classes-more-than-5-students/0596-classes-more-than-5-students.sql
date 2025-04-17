@@ -3,4 +3,4 @@ SELECT
     C.class
 FROM Courses C
 GROUP BY C.class
-HAVING COUNT(*) >= 5
+HAVING COUNT(C.student) >= 5
