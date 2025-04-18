@@ -3,18 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        bucket = [0, 0, 0]
+        buckets = [0, 0, 0]
 
         for num in nums:
-            bucket[num] += 1
+            buckets[num] += 1
         
-        res = []
-
         j = 0
-        for i in range(len(nums)):
-            while bucket[j] <= 0:
-                j += 1
 
-            nums[i] = j
-            bucket[j] -= 1
+        for index, bucket in enumerate(buckets):
+            for _ in range(bucket):
+                nums[j] = index
+                j += 1
         
