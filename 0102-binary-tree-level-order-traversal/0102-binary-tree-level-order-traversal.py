@@ -14,7 +14,7 @@ class Solution:
         while queue:
             level = []
 
-            for i in range(len(queue)):
+            for _ in range(len(queue)):
                 node = queue.popleft()
 
                 if node:
@@ -23,9 +23,9 @@ class Solution:
                     
                     if node.right:
                         queue.append(node.right)
-
-                    level.append(node.val)
                     
+                    level.append(node.val)
+            
             if level:
                 res.append(level)
         
