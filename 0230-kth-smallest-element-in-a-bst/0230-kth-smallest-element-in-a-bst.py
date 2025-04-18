@@ -5,21 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def _parse_tree(self, root, resps, k):
-        if len(resps) > k:
-            return
-
-        if not root:
-            return
-
-        self._parse_tree(root.left, resps, k)
-        resps.append(root.val)
-        self._parse_tree(root.right, resps, k)
-
-        return
-
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        resps = []
-        self._parse_tree(root, resps, k)
+        res = []
 
-        return resps[k - 1]
+        def inorder(root):
+            if not root:
+                return
+            
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+        
+        inorder(root)
+
+        return res[k-1]
