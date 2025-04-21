@@ -9,23 +9,27 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        if not head:
-            return head
-            
-        copiedList = {}
+        mapper = {}
+        res = Node(0)
+        anchor = res
+        current = head
 
-        start = head
+        while current:
+            res.next = Node(current.val)
+            mapper[current] = res.next
 
-        while start:
-            copiedList[start] = ListNode(start.val)
-            start = start.next
+            res = res.next
+            current = current.next
         
-        start = head
+        current = head
 
-        while start:
-            copiedList[start].random = copiedList[start.random] if start.random else None
-            copiedList[start].next = copiedList[start.next] if start.next else None
-                
-            start = start.next
+        while current:
+            if current.random:
+                mapper[current].random = mapper[current.random]
+            else:
+                mapper[current].random = None
+            
+            current = current.next
 
-        return copiedList[head]
+        return anchor.next
+        
