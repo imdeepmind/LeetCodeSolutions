@@ -1,14 +1,21 @@
 class Solution:
     def convertToTitle(self, columnNumber: int) -> str:
-        resp = ""
-
-        while columnNumber > 0:
-            if columnNumber <= 26:
-                resp += chr(columnNumber+64)
-                break
+        def divide_numbers(n):
+            divided_numbers = []
             
-            columnNumber -= 1
-            resp += chr(columnNumber%26+65)
-            columnNumber //= 26
+            while n > 26:
+                n -= 1
+                divided_numbers.append(n%26+65)
+                n //= 26
+                
+            divided_numbers.append(n+64)
+        
+            return divided_numbers[::-1]
+        
+        divided_numbers = divide_numbers(columnNumber)
+        res = ""
 
-        return resp[::-1]
+        for num in divided_numbers:
+            res += chr(num)
+        
+        return res
