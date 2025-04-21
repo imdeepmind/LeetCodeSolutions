@@ -11,8 +11,8 @@ class Solution:
         if not head or not head.next:
             return head
             
-        def find_middle(root):
-            slow, fast = root, root
+        def find_middle(head):
+            slow, fast = head, head
 
             while fast and fast.next:
                 slow = slow.next
@@ -20,8 +20,20 @@ class Solution:
             
             return slow
         
-        def reversed_list(root):
-            prev, current = None, root
+        def split_list(head, middle):
+            current = head
+
+            while current.next:
+                if current.next == middle:
+                    current.next = None
+                    break
+
+                current = current.next
+            
+            return head
+
+        def reverse_list(node):
+            prev, current = None, node
 
             while current:
                 temp = current.next
@@ -31,22 +43,10 @@ class Solution:
                 current = temp
             
             return prev
-        
-        def divide_list(root, middle):
-            current = root
 
-            while current.next:
-                if current.next == middle:
-                    current.next = None
-                    break
-
-                current = current.next
-            
-            return root
-        
         middle = find_middle(head)
-        reversed_middle = reversed_list(middle)
-        start = divide_list(head, middle)
+        start = split_list(head, middle)
+        reversed_middle = reverse_list(middle)
 
         res = ListNode(0)
         anchor = res
@@ -61,5 +61,3 @@ class Solution:
                 res.next = reversed_middle
                 reversed_middle = reversed_middle.next
                 res = res.next
-        
-        return anchor.next
