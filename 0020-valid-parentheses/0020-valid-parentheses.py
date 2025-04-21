@@ -1,7 +1,7 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        start_params = []
-        end_params = []
+        left_ps = []
+        right_ps = []
 
         opp = {
             ')': '(',
@@ -10,12 +10,13 @@ class Solution:
         }
 
         for c in s:
-            if c in ['(', '{', '[']:
-                start_params.append(c)
+            if c in ('(', '{', '['):
+                left_ps.append(c)
             else:
-                if start_params and start_params[-1] == opp[c]:
-                    del start_params[-1]
+                if left_ps and left_ps[-1] == opp[c]:
+                    del left_ps[-1]
                 else:
-                    end_params.append(c)
+                    right_ps.append(c)
+        
+        return len(left_ps) == 0 and len(right_ps) == 0
 
-        return len(start_params) == 0 and len(end_params) == 0
