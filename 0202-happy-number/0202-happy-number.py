@@ -1,29 +1,26 @@
 class Solution:
-    def isHappy(self, n: int) -> bool:
-        def to_array(n):
-            arr = []
+    def find_sum(self, n):
+        res = []
 
-            while n > 0:
-                digit = n % 10
-                n = n // 10
-
-                arr.append(digit)
-            
-            return arr[::-1]
+        while n > 0:
+            res.append((n % 10) ** 2)
+            n //= 10
         
-        mapper = {}
+        return sum(res)
 
-        while True:
-            sqaured_arr = [x**2 for x in to_array(n)]
-            sum_arr = sum(sqaured_arr)
-            n = sum_arr
-            
-            if sum_arr in mapper:
-                break
+    def isHappy(self, n: int) -> bool:
+        if n < 0:
+            return False
+        
+        n = self.find_sum(n)
+        dp = set()
 
-            mapper[sum_arr] = 1
+        while n != 1:
+            n = self.find_sum(n)
 
-            if sum_arr == 1:
-                return True
+            if n in dp:
+                return False
 
-        return False
+            dp.add(n)
+        
+        return True
