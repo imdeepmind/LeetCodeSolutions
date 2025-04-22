@@ -1,22 +1,23 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         digits[-1] += 1
-
-        res = []
-        n = len(digits)
         carry = 0
+        res = []
 
-        for i in range(n-1, -1, -1):
-            alpha = digits[i] + carry
+        for i in range(len(digits)-1, -1, -1):
+            alpha = carry + digits[i]
             carry = 0
 
-            if alpha >= 10:
+            if alpha > 9:
                 alpha %= 10
                 carry = 1
             
             res.append(alpha)
         
         if carry:
-            res.append(1)
-        
+            res.append(carry)
+
         return res[::-1]
+
+
+            
