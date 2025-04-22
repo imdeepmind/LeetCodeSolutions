@@ -4,11 +4,12 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 from collections import deque
 
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        q = deque([(root, float('-inf'))])
+        q = deque([(root, root.val)])
         good_nodes = 0
 
         while q:
@@ -20,9 +21,9 @@ class Solution:
                         q.append((node.left, max(max_val, node.val)))
                     
                     if node.right:
-                        q.append((node.right, max(max_val, node.val)))
-
+                        q.append((node.right,  max(max_val, node.val)))
+                    
                     if node.val >= max_val:
                         good_nodes += 1
 
-        return good_nodes
+        return good_nodes        
