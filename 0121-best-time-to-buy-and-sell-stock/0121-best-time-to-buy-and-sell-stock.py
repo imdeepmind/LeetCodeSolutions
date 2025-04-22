@@ -5,7 +5,7 @@ class Solution:
 
         while len(prices) > sell:
             if prices[sell] > prices[buy]:
-                max_profit = max(prices[sell] - prices[buy], max_profit)
+                max_profit = max(max_profit, prices[sell]-prices[buy])
             else:
                 buy = sell
             
