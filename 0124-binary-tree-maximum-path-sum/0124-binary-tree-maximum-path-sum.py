@@ -14,8 +14,8 @@ class Solution:
             if not root:
                 return 0
 
-            left = calculate_path_sum(root.left)
-            right = calculate_path_sum(root.right)
+            left = max(0, calculate_path_sum(root.left))
+            right = max(0, calculate_path_sum(root.right))
             
             max_path = max(max_path, root.val + left + right)
 
