@@ -13,6 +13,4 @@ class Solution:
             if end >= start and capacity >= people[start]:
                 start += 1
 
-
         return boats
-            
