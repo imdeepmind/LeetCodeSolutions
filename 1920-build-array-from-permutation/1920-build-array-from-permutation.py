@@ -1,5 +1,8 @@
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
-        return [
-            nums[nums[i]] for i in range(len(nums))
-        ]
+        res = []
+
+        for num in nums:
+            res.append(nums[num])
+        
+        return res
