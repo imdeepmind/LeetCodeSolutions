@@ -1,17 +1,20 @@
 from collections import defaultdict
 
 class Solution:
-    def generateKey(self, word):
-        return "".join(sorted(word))
-
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        freq = defaultdict(list)
+        def get_key(word):
+            return "".join(sorted(word))
+        
+        mapper = defaultdict(list)
 
         for word in strs:
-            freq[self.generateKey(word)].append(word)
+            mapper[get_key(word)].append(word)
         
         resp = []
-        for key, value in freq.items():
+
+        for key, value in mapper.items():
             resp.append(value)
         
         return resp
+                
+
