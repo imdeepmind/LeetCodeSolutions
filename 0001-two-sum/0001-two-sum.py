@@ -6,9 +6,6 @@ class Solution:
             mapper[num] = index
         
         for index, num in enumerate(nums):
-            delta = target - num
-
-            if delta in mapper and index != mapper[delta]:
-                return index, mapper[delta]
-        
-        return -1, -1
+            alpha = target - num 
+            if alpha in mapper and index != mapper[alpha]:
+                return index, mapper[alpha]
