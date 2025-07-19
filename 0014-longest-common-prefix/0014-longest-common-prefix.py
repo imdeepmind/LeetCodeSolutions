@@ -1,18 +1,18 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         pivot = strs[0]
-        res = ""
 
-        for p in pivot:
-            matched = True
+        resp = ""
 
+        for c in pivot:
+            is_match = True
             for word in strs[1:]:
-                if not word.startswith(res + p):
-                    matched = False
-
-            if matched:
-                res += p
+                if not word.startswith(resp + c):
+                    is_match = False
+                
+            if is_match:
+                resp += c
             else:
                 break
             
-        return res
+        return resp
