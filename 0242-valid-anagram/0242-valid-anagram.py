@@ -1,8 +1,18 @@
-from collections import Counter
-
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
         
-        return Counter(s) == Counter(t)
+        freq = {}
+
+        for c in s:
+            freq[c] = 1 + freq.get(c, 0)
+        
+        for c in t:
+            freq[c] = freq.get(c, 0) - 1
+        
+        for k, v in freq.items():
+            if v != 0:
+                return False
+        
+        return True
