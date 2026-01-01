@@ -1,11 +1,11 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        _hash = {}
+        hash = {}
 
         for num in nums:
-            if num in _hash:
+            if num in hash:
                 return True
             
-            _hash[num] = 1
-        
+            hash[num] = 1
+
         return False
