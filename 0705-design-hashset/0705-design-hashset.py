@@ -1,19 +1,47 @@
+class ListNode:
+    def __init__(self, key: int):
+        self.key = key
+        self.next = None
+
 class MyHashSet:
 
     def __init__(self):
-        self.mapper = {}
+        self.__set = [ListNode(0) for _ in range(10**4)]
 
     def add(self, key: int) -> None:
-        self.mapper[key] = 1
+        curr = self.__set[key % len(self.__set)]
 
-    def remove(self, key: int) -> None:
-        if key in self.mapper:
-            del self.mapper[key]
-
-    def contains(self, key: int) -> bool:
-        return key in self.mapper
+        # Handling colisions using linked list
+        while curr.next:
+            if curr.next.key == key:
+                return
+            
+            curr = curr.next
         
+        curr.next = ListNode(key)
+        
+    def remove(self, key: int) -> None:
+        curr = self.__set[key % len(self.__set)]
 
+        # Handling colisions using linked list
+        while curr.next:
+            if curr.next.key == key:
+                curr.next = curr.next.next
+                return
+            
+            curr = curr.next
+        
+    def contains(self, key: int) -> bool:
+        curr = self.__set[key % len(self.__set)]
+
+        # Handling colisions using linked list
+        while curr.next:
+            if curr.next.key == key:
+                return True
+            
+            curr = curr.next
+        
+        return False
 
 # Your MyHashSet object will be instantiated and called as such:
 # obj = MyHashSet()
