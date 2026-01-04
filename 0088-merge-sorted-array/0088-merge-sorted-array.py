@@ -3,17 +3,26 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        num1_pointer = m - 1
-        num2_pointer = n - 1
+        if n == 0:
+            return nums1
 
-        pointer = m + n - 1
+        res = len(nums1) - 1
+        p, q = m - 1, n - 1
 
-        while num2_pointer >= 0:
-            if num1_pointer >= 0 and nums1[num1_pointer] > nums2[num2_pointer]:
-                nums1[pointer] = nums1[num1_pointer]
-                num1_pointer -= 1
+        while p >= 0 or q >= 0:
+            if p >= 0 and q >= 0:
+                if nums1[p] > nums2[q]:
+                    nums1[res] = nums1[p]
+                    p -= 1
+                else:
+                    nums1[res] = nums2[q]
+                    q -= 1
             else:
-                nums1[pointer] = nums2[num2_pointer]
-                num2_pointer -= 1
+                if p >= 0 and q < 0:
+                    nums1[res] = nums1[p]
+                    p -= 1
+                else:
+                    nums1[res] = nums2[q]
+                    q -= 1
             
-            pointer -= 1
+            res -= 1
