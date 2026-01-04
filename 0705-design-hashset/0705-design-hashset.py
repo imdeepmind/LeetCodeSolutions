@@ -1,5 +1,5 @@
 class ListNode:
-    def __init__(self, key: int):
+    def __init__(self, key):
         self.key = key
         self.next = None
 
@@ -9,37 +9,36 @@ class MyHashSet:
         self.__set = [ListNode(0) for _ in range(10**4)]
 
     def add(self, key: int) -> None:
-        curr = self.__set[key % len(self.__set)]
+        cur = self.__set[key % len(self.__set)]
 
-        # Handling colisions using linked list
-        while curr.next:
-            if curr.next.key == key:
+        while cur.next:
+            if cur.next.key == key:
                 return
             
-            curr = curr.next
+            cur = cur.next
         
-        curr.next = ListNode(key)
+        cur.next = ListNode(key)
         
     def remove(self, key: int) -> None:
-        curr = self.__set[key % len(self.__set)]
+        cur = self.__set[key % len(self.__set)]
 
-        # Handling colisions using linked list
-        while curr.next:
-            if curr.next.key == key:
-                curr.next = curr.next.next
+        while cur.next:
+            if cur.next.key == key:
+                cur.next = cur.next.next
                 return
             
-            curr = curr.next
+            cur = cur.next
         
-    def contains(self, key: int) -> bool:
-        curr = self.__set[key % len(self.__set)]
+        return
 
-        # Handling colisions using linked list
-        while curr.next:
-            if curr.next.key == key:
+    def contains(self, key: int) -> bool:
+        cur = self.__set[key % len(self.__set)]
+
+        while cur.next:
+            if cur.next.key == key:
                 return True
             
-            curr = curr.next
+            cur = cur.next
         
         return False
 
