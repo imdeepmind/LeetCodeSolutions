@@ -2,12 +2,15 @@ from collections import defaultdict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t): return False
+        n1, n2 = len(s), len(t)
 
+        if n1 != n2:
+            return False
+        
         freq = defaultdict(int)
 
         for c in s:
-            freq[c] = freq.get(c, 0) + 1
+            freq[c] += 1
         
         for c in t:
             freq[c] -= 1
@@ -17,4 +20,3 @@ class Solution:
                 return False
         
         return True
-        
