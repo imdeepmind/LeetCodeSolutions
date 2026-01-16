@@ -1,12 +1,14 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        count = 0
+        anchor, cur = 0, 0
+        k = 0
 
-        for i in range(len(nums)):
-            num = nums[i]
-
+        for num in nums:
             if num != val:
-                nums[count] = nums[i]
-                count += 1
+                k += 1
+                nums[anchor], nums[cur] = nums[cur], nums[anchor]
+                anchor += 1
+            
+            cur += 1
         
-        return count
+        return k
