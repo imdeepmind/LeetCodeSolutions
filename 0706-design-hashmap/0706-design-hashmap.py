@@ -7,40 +7,45 @@ class ListNode:
 class MyHashMap:
 
     def __init__(self):
-        self.__set = [ListNode(0) for _ in range(10**4)]
+        self.__map = [ListNode(0) for _ in range(10**4)]
         
-    def put(self, key: int, value: int) -> None:
-        curr = self.__set[key % len(self.__set)]
 
-        while curr.next:
-            if curr.next.key == key:
-                curr.next.value = value
+    def put(self, key: int, value: int) -> None:
+        cur = self.__map[key % len(self.__map)]
+        
+        while cur.next:
+            if cur.next.key == key:
+                cur.next.value = value
                 return
             
-            curr = curr.next
+            cur = cur.next
         
-        curr.next = ListNode(key, value)
-        
-    def get(self, key: int) -> int:
-        curr = self.__set[key % len(self.__set)]
+        cur.next = ListNode(key, value)
+        return
 
-        while curr.next:
-            if curr.next.key == key:
-                return curr.next.value
+    def get(self, key: int) -> int:
+        cur = self.__map[key % len(self.__map)]
+        
+        while cur.next:
+            if cur.next.key == key:
+                return cur.next.value
             
-            curr = curr.next
+            cur = cur.next
         
         return -1
+        
 
     def remove(self, key: int) -> None:
-        curr = self.__set[key % len(self.__set)]
-
-        while curr.next:
-            if curr.next.key == key:
-                curr.next = curr.next.next
+        cur = self.__map[key % len(self.__map)]
+        
+        while cur.next:
+            if cur.next.key == key:
+                cur.next = cur.next.next
                 return
             
-            curr = curr.next
+            cur = cur.next
+        
+        return
 
 
 # Your MyHashMap object will be instantiated and called as such:
