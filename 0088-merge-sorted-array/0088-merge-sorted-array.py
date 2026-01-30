@@ -3,26 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        if n == 0:
-            return nums1
+        i, j = m - 1, n - 1
+        k = m + n - 1
 
-        res = len(nums1) - 1
-        p, q = m - 1, n - 1
-
-        while p >= 0 or q >= 0:
-            if p >= 0 and q >= 0:
-                if nums1[p] > nums2[q]:
-                    nums1[res] = nums1[p]
-                    p -= 1
-                else:
-                    nums1[res] = nums2[q]
-                    q -= 1
+        while j >= 0:
+            if i >= 0 and nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
             else:
-                if p >= 0 and q < 0:
-                    nums1[res] = nums1[p]
-                    p -= 1
-                else:
-                    nums1[res] = nums2[q]
-                    q -= 1
+                nums1[k] = nums2[j]
+                j -= 1
             
-            res -= 1
+            k -= 1
