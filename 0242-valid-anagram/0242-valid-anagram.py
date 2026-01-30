@@ -7,13 +7,13 @@ class Solution:
         if n1 != n2:
             return False
         
-        freq = defaultdict(int)
+        freq = {}
 
         for c in s:
-            freq[c] += 1
+            freq[c] = 1 + freq.get(c, 0)
         
         for c in t:
-            freq[c] -= 1
+            freq[c] = freq.get(c, 0) - 1
         
         for key, value in freq.items():
             if value != 0:
