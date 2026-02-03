@@ -4,16 +4,15 @@ class Solution:
         res = ""
 
         for c in pivot:
-            delta = res + c
             is_match = True
 
             for word in strs[1:]:
-                if not word.startswith(delta):
+                if not word.startswith(res + c):
                     is_match = False
                     break
             
             if is_match:
-                res = delta
+                res += c
             else:
                 break
         
