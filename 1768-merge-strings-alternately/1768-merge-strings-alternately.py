@@ -1,16 +1,19 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        n1, n2 = len(word1)-1, len(word2)-1
-        p, q = 0, 0
         res = ""
+        anchor1, anchor2 = 0, 0
+        n1, n2 = len(word1), len(word2)
 
-        while n1 >= p or n2 >= q:
-            if n1 >= p:
-                res += word1[p]
-                p += 1
+        while n1 > anchor1 or n2 > anchor2:
+            first = word1[anchor1] if n1 > anchor1 else ""
+            second = word2[anchor2] if n2 > anchor2 else ""
+
+            res += first + second
+
+            if first:
+                anchor1 += 1
             
-            if n2 >= q:
-                res += word2[q]
-                q += 1
-        
+            if second:
+                anchor2 += 1
+
         return res
