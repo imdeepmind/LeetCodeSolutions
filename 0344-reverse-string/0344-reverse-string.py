@@ -5,9 +5,8 @@ class Solution:
         """
         start, end = 0, len(s) - 1
 
-        while end >= start:
+        while end > start:
             s[start], s[end] = s[end], s[start]
 
-            start += 1
             end -= 1
-        
+            start += 1
