@@ -1,51 +1,46 @@
-class ListNode:
-    def __init__(self, key, value=None):
+class Node:
+    def __init__(self, key, val=0):
         self.key = key
-        self.value = value
+        self.val = val
         self.next = None
 
 class MyHashMap:
 
     def __init__(self):
-        self.__map = [ListNode(0) for _ in range(10**4)]
-        
+        self.__res = [Node(0) for _ in range(10**4)]
 
     def put(self, key: int, value: int) -> None:
-        cur = self.__map[key % len(self.__map)]
-        
+        cur = self.__res[key % len(self.__res)]
+
         while cur.next:
             if cur.next.key == key:
-                cur.next.value = value
+                cur.next.val = value
                 return
             
             cur = cur.next
         
-        cur.next = ListNode(key, value)
-        return
+        cur.next = Node(key, value)
 
     def get(self, key: int) -> int:
-        cur = self.__map[key % len(self.__map)]
-        
+        cur = self.__res[key % len(self.__res)]
+
         while cur.next:
             if cur.next.key == key:
-                return cur.next.value
+                return cur.next.val
             
             cur = cur.next
         
         return -1
-        
 
     def remove(self, key: int) -> None:
-        cur = self.__map[key % len(self.__map)]
-        
+        cur = self.__res[key % len(self.__res)]
+
         while cur.next:
             if cur.next.key == key:
                 cur.next = cur.next.next
                 return
             
             cur = cur.next
-        
-        return
 
 
 # Your MyHashMap object will be instantiated and called as such:
