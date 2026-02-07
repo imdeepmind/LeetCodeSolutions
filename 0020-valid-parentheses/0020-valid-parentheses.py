@@ -1,22 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        left_ps = []
-        right_ps = []
-
+        stack = []
         opp = {
-            ')': '(',
-            '}': '{',
-            ']': '[' 
+            "(": ")",
+            "{": "}",
+            "[": "]"
         }
 
         for c in s:
-            if c in ('(', '{', '['):
-                left_ps.append(c)
+            if c in opp:
+                stack.append(c)
             else:
-                if left_ps and left_ps[-1] == opp[c]:
-                    del left_ps[-1]
+                if stack and opp[stack[-1]] == c:
+                    stack.pop()
                 else:
-                    right_ps.append(c)
+                    return False
         
-        return len(left_ps) == 0 and len(right_ps) == 0
-
+        return len(stack) == 0
