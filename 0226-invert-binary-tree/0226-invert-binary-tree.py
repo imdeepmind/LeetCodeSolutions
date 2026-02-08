@@ -9,12 +9,12 @@ class Solution:
         def invert(head):
             if not head:
                 return
-
+            
             head.left, head.right = head.right, head.left
-            self.invertTree(head.left)
-            self.invertTree(head.right)
 
-            return root
+            invert(head.left)
+            invert(head.right)
+        
+        invert(root)
 
-        return invert(root)
-
+        return root
