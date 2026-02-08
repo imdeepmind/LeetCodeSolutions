@@ -2,9 +2,7 @@ from collections import defaultdict
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        n1, n2 = len(s), len(t)
-
-        if n1 != n2:
+        if len(s) != len(t):
             return False
         
         freq = {}
