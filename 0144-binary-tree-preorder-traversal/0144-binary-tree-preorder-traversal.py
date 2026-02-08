@@ -10,7 +10,7 @@ class Solution:
 
         def dfs(head):
             if not head:
-                return 
+                return
             
             res.append(head.val)
             dfs(head.left)
