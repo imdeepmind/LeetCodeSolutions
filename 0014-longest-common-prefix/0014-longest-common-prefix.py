@@ -5,7 +5,6 @@ class Solution:
 
         for c in pivot:
             is_match = True
-
             for word in strs[1:]:
                 if not word.startswith(res + c):
                     is_match = False
