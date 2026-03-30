@@ -5,7 +5,7 @@ class Solution:
         for index, num in enumerate(nums):
             delta = target - num
 
-            if delta in mapper and mapper[delta] != index:
+            if delta in mapper:
                 return [mapper[delta], index]
             
             mapper[num] = index
