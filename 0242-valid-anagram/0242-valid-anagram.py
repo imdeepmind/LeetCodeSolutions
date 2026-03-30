@@ -1,20 +1,20 @@
-from collections import defaultdict
-
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        chrs = [0] * 26
+        delta = 97
+
         if len(s) != len(t):
             return False
-        
-        freq = {}
 
         for c in s:
-            freq[c] = 1 + freq.get(c, 0)
-        
+            chrs[ord(c) - delta] += 1
+
         for c in t:
-            freq[c] = freq.get(c, 0) - 1
-        
-        for key, value in freq.items():
-            if value != 0:
+            chrs[ord(c) - delta] -= 1
+
+
+        for val in chrs:
+            if val != 0:
                 return False
-        
+
         return True
