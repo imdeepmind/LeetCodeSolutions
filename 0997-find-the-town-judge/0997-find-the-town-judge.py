@@ -2,15 +2,17 @@ from collections import defaultdict
 
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        incomingMapper = defaultdict(int)
-        outgoingMapper = defaultdict(int)
+        incoming = defaultdict(int)
+        outgoing = defaultdict(int)
 
-        for t in trust:
-            outgoingMapper[t[0]] += 1
-            incomingMapper[t[1]] += 1
+        for p1, p2 in trust:
+            outgoing[p1] += 1
+            incoming[p2] += 1
         
-        for i in range(1, n+1):
-            if incomingMapper[i] == n-1 and outgoingMapper[i] == 0:
-                return i
-                
+        for i in range(n):
+            p = i + 1
+
+            if outgoing[p] == 0 and incoming[p] == n-1:
+                return p
+        
         return -1
