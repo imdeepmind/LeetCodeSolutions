@@ -8,6 +8,7 @@ Leet Code solutions
 | ------- | ------- |
 | [0001-two-sum](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0001-two-sum/) | Easy |
 | [0217-contains-duplicate](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0217-contains-duplicate/) | Easy |
+| [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
 | [1863-sum-of-all-subset-xor-totals](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/1863-sum-of-all-subset-xor-totals/) | Easy |
 | [1929-concatenation-of-array](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/1929-concatenation-of-array/) | Easy |
 ## Simulation
@@ -49,4 +50,16 @@ Leet Code solutions
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1863-sum-of-all-subset-xor-totals](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/1863-sum-of-all-subset-xor-totals/) | Easy |
+## Depth-First Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
+## Breadth-First Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
+## Matrix
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
 <!---LeetCode Topics End-->
