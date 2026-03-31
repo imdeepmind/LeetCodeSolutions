@@ -9,6 +9,7 @@ Leet Code solutions
 | [0001-two-sum](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0001-two-sum/) | Easy |
 | [0217-contains-duplicate](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0217-contains-duplicate/) | Easy |
 | [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
+| [0997-find-the-town-judge](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0997-find-the-town-judge/) | Easy |
 | [1863-sum-of-all-subset-xor-totals](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/1863-sum-of-all-subset-xor-totals/) | Easy |
 | [1929-concatenation-of-array](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/1929-concatenation-of-array/) | Easy |
 ## Simulation
@@ -21,6 +22,7 @@ Leet Code solutions
 | [0001-two-sum](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0001-two-sum/) | Easy |
 | [0217-contains-duplicate](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0217-contains-duplicate/) | Easy |
 | [0242-valid-anagram](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0242-valid-anagram/) | Easy |
+| [0997-find-the-town-judge](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0997-find-the-town-judge/) | Easy |
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -62,4 +64,8 @@ Leet Code solutions
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0463-island-perimeter](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0463-island-perimeter/) | Easy |
+## Graph Theory
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0997-find-the-town-judge](https://github.com/imdeepmind/LeetCodeSolutions/tree/main/0997-find-the-town-judge/) | Easy |
 <!---LeetCode Topics End-->
