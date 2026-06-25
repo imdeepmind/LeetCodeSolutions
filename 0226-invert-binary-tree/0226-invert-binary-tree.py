@@ -4,17 +4,15 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         def invert(head):
             if not head:
                 return
             
-            head.left, head.right = head.right, head.left
+            head.left, head.right = invert(head.right), invert(head.left)
 
-            invert(head.left)
-            invert(head.right)
+            return head
         
-        invert(root)
-
-        return root
+        return invert(root)
