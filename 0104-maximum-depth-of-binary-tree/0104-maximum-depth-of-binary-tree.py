@@ -4,23 +4,20 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        max_height = 0
+        max_depth = 0
 
-        def calculate(head):
-            nonlocal max_height
+        def maxd(head):
+            nonlocal max_depth
 
             if not head:
                 return 0
             
-            left_height = calculate(head.left)
-            right_height = calculate(head.right)
+            max_depth = 1 + max(maxd(head.left), maxd(head.right))
 
-            max_height = 1 + max(left_height, right_height)
-
-            return max_height
+            return max_depth
         
-        calculate(root)
-
-        return max_height
+        return maxd(root)
+            
