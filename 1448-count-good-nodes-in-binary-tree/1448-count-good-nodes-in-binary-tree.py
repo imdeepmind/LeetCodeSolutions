@@ -5,25 +5,24 @@
 #         self.left = left
 #         self.right = right
 
-from collections import deque
-
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        q = deque([(root, root.val)])
         good_nodes = 0
+        def dfs(head, minVal):
+            nonlocal good_nodes
 
-        while q:
-            for _ in range(len(q)):
-                node, max_val = q.popleft()
+            if not head:
+                return
+            
+            if head.val >= minVal:
+                good_nodes += 1
+                minVal = head.val
+            
+            dfs(head.left, minVal)
+            dfs(head.right, minVal)
 
-                if node:
-                    if node.left:
-                        q.append((node.left, max(max_val, node.val)))
-                    
-                    if node.right:
-                        q.append((node.right,  max(max_val, node.val)))
-                    
-                    if node.val >= max_val:
-                        good_nodes += 1
+            return
+        
+        dfs(root, root.val)
 
-        return good_nodes        
+        return good_nodes
