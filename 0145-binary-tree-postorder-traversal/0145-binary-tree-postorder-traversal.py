@@ -14,7 +14,9 @@ class Solution:
             
             dfs(head.left)
             dfs(head.right)
+
             res.append(head.val)
+            return
         
         dfs(root)
 
