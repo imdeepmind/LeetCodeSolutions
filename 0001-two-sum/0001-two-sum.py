@@ -1,13 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        mapper = {}
+        hash = {}
 
         for index, num in enumerate(nums):
             delta = target - num
-
-            if delta in mapper:
-                return [mapper[delta], index]
+            if delta in hash:
+                return [index, hash[delta]]
             
-            mapper[num] = index
+            hash[num] = index
         
         return [-1, -1]
